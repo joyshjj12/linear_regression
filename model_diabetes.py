@@ -20,15 +20,15 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 
 # Scale the features
 scaler = StandardScaler()
-X_train_scaled = scaler.fit_transform(X_train)
-X_test_scaled = scaler.transform(X_test)
+X_train_scale = scaler.fit_transform(X_train)
+X_test_scale = scaler.transform(X_test)
 
 # Initialize and train the model
 model = LinearRegression()
-model.fit(X_train_scaled, y_train)
+model.fit(X_train_scale, y_train)
 
 # Make predictions
-y_pred = model.predict(X_test_scaled)
+y_pred = model.predict(X_test_scale)
 
 # Evaluate the model
 mse = mean_squared_error(y_test, y_pred)
